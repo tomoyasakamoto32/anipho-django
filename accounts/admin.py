@@ -14,6 +14,7 @@ class CustomizeUserAdmin(UserAdmin):
     ('パーミッション', {'fields': ('is_staff', 'is_active', 'is_superuser')}),
   )
 
+  #ユーザー追加画面で表示する要素
   add_fieldsets = (
         ('ユーザー情報', {
             'fields': ('username', 'email', 'password', 'confirm_password'),

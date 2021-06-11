@@ -1,0 +1,55 @@
+nav {
+  height: 10vh;
+  background-color: #6f5949;
+  color: white;
+}
+
+nav a {
+  color:white;
+}
+
+nav a:hover {
+  color: rgba(255, 255, 255, 0.803);
+}
+
+.nav-item>a {
+  font-size: 2.5vh;
+}
+
+.container-fluid>a {
+  font-size: 4vh;
+}
+
+.navbar-light .navbar-toggler {
+  color: rgba(255, 255, 255, 0.797);
+  border-color: #ffffff;
+}
+
+.navbar-light .navbar-brand {
+  color: #ffffff;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #ffffff;
+}
+
+.navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {
+  color: #ffffff;
+}
+
+.navbar-icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+.navbar-icon>div {
+  background-color: #ffffff;
+  height: 2px;
+  width: 1.5em;
+  margin: 5px 0;
+}

@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import (
   BaseUserManager, AbstractBaseUser, PermissionsMixin
 )
+from django.urls import reverse_lazy
 
 class UserManager(BaseUserManager):
 
@@ -13,6 +14,7 @@ class UserManager(BaseUserManager):
       email=email
     )
     user.set_password(password)
+    user.is_active = True
     user.save(using=self._db)
     return user
 
@@ -32,7 +34,7 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser, PermissionsMixin):
   username = models.CharField(max_length=100)
   email = models.EmailField(max_length=255, unique=True)
-  is_active = models.BooleanField(default=False)
+  is_active = models.BooleanField(default=True)
   is_staff = models.BooleanField(default=False)
 
   USERNAME_FIELD = 'email'
@@ -42,3 +44,6 @@ class User(AbstractBaseUser, PermissionsMixin):
 
   def __str__(self):
     return self.email
+
+  def get_absolute_url(self):
+    return reverse_lazy('accounts:sample_user')
