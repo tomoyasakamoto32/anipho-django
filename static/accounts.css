@@ -9,6 +9,19 @@
   padding: 5vh;
 }
 
+.accounts-button {
+  color: white;
+  background-color: #6f5949;
+  border:none;
+  padding:7px;
+  border-radius: 16px;
+}
+
+.accounts-button:hover {
+  background-color: #a18068;
+  transition: 0.3s;
+}
+
 @media (max-width: 599px) {
   .col-6 {
     margin: 0;
