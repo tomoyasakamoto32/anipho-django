@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row list-contents">
+  <div class="bg-img"></div>
+</div>
+
+<div class="row justify-content-center">
+  {% for post in object_list %}
+  <div class='col'>
+    <div class="card" style="width: 18rem;">
+      <img src="{{post.picture.url}}" class="card-img-top" alt="ペットの写真">
+      <div class="card-body">
+        <h5 class="card-title">{{ post.title }}</h5>
+        <p class="card-text">{{ post.detail }}</p>
+        <a href="#" class="btn">詳細ページへ</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<div class="post-btn">
+  <a href="#" class="btn">投稿する</a>
+</div>
+{% endblock %}

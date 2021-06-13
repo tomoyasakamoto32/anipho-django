@@ -1,0 +1,43 @@
+a.btn {
+  background-color: #6f5949;
+  color: white;
+}
+
+.col{
+  margin-top: 5vh;
+}
+
+.bg-img {
+  height: 500px;
+  background-image: url(tomneko12151305_TP_V.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.list-contents {
+  margin: 0;
+}
+
+.post-btn>a {
+  width: 150px;
+  background: #6f5949;
+  color:white;
+  text-align: center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  padding: 15px;
+  z-index: 30;
+  text-decoration: none;
+}
+
+@media (max-width: 599px) {
+  .post-btn>a {
+    width: 120px;
+  }
+}

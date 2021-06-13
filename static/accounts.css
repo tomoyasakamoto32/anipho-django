@@ -22,6 +22,11 @@
   transition: 0.3s;
 }
 
+.btn {
+  background-color: #6f5949;
+  color: white;
+}
+
 @media (max-width: 599px) {
   .col-6 {
     margin: 0;

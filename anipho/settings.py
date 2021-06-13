@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts'
+    'accounts',
+    'posts',
 ]
 
 MIDDLEWARE = [
@@ -133,5 +134,8 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = '/accounts/user_login/'
-LOGIN_REDIRECT_URL = '/accounts/sample2/'
+LOGIN_REDIRECT_URL = '/posts/post_list/'
 LOGOUT_REDIRECT_URL = '/accounts/user_login/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
