@@ -1,0 +1,25 @@
+img {
+  width:100%;
+  margin-top: 5vh;
+}
+
+.container {
+  padding: 10px;
+}
+
+th {
+  width: 20%;
+  border: solid 1px white;
+  color: white;
+  background-color: #6f5949;
+  padding: 1vw;
+}
+
+td {
+  width: 80%;
+  border: solid 1px black;
+  color:black;
+}
+
+@media (max-width: 599px) {
+}

@@ -1,4 +1,10 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block customcss %}
+  <link rel="stylesheet" type="text/css" href="{% static 'post-list.css' %}" >
+{% endblock customcss %}
+
 {% block content %}
 
 <div class="row list-contents">
@@ -13,7 +19,7 @@
       <div class="card-body">
         <h5 class="card-title">{{ post.title }}</h5>
         <p class="card-text">{{ post.detail|truncatechars:50 }}</p>
-        <a href="#" class="btn">詳細ページへ</a>
+        <a href="{% url 'posts:post_detail' post.pk %}" class="btn">詳細ページへ</a>
       </div>
     </div>
   </div>
