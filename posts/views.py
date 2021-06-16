@@ -35,7 +35,7 @@ def post_update(request, pk):
     raise Http404
   update_form = PostForm(request.POST or None, instance=post)
   if update_form.is_valid():
-    update_form.save()
+    update_form.update_save()
     return redirect('posts:post_detail', pk=pk)
   return render(request, 'posts/post_update.html', context={
     'form': update_form
