@@ -10,6 +10,12 @@
   <div class="row justify-content-center">
     <div class="col-sm-10">
       <img src="{{ object.picture.url }}" alt="ペットの写真">
+      {% if object.user.id == request.user.id %}
+      <div class="btn-wrapper">
+        <a href="{% url 'posts:post_update' object.pk %}" class="btn">更新する</a>
+        <a href="#" class="btn">削除する</a>
+      </div>
+      {% endif %}
       <table>
         <tbody>
           <tr>

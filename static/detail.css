@@ -25,5 +25,17 @@ td {
   color:black;
 }
 
+.btn-wrapper{
+  display: flex;
+  justify-content: center;
+}
+
+.btn-wrapper>a{
+  width: 30%;
+  margin: 2vh;
+  font-weight: bold;
+  font-size: large;
+}
+
 @media (max-width: 599px) {
 }
