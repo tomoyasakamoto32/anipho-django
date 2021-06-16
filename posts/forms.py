@@ -23,6 +23,7 @@ class PostForm(forms.ModelForm):
 
   def save(self):
     post = super().save(commit=False)
+    post.user = self.user
     post.created_at = make_aware(datetime.now())
     post.updated_at = make_aware(datetime.now())
     post.save()

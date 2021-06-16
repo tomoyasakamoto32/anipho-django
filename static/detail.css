@@ -37,5 +37,30 @@ td {
   font-size: large;
 }
 
+/* delete用のCSSプロパティです */
+.delete-form_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5vh;
+}
+
+.delete-form_wrapper>form {
+  display:inline-block;
+  margin:0 2vw;
+  padding: 5px;
+}
+
+.delete-form_wrapper>form>input {
+  width: 6vw;
+  font-weight: bold;
+}
+
+.delete-form_wrapper>a {
+  margin: 0 2vw;
+  width: 6vw;
+  font-weight: bold;
+}
+
 @media (max-width: 599px) {
 }

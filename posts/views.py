@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 import os
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Post
 from django.http import Http404
 from .forms import PostForm
@@ -11,16 +11,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 class PostListView(LoginRequiredMixin, ListView):
   model = Post
   template_name = os.path.join('posts', 'post_list.html')
-
-class PostCreateView(CreateView):
-  template_name = os.path.join('posts','post_create.html')
-  form_class = PostForm
-
-  success_url =reverse_lazy('posts:post_list')
-
-  def form_valid(self, form):
-    form.user = self.request.user
-    return super().form_valid(form)
 
 
 def post_create(request):
@@ -33,9 +23,11 @@ def post_create(request):
       'form': post_form
     })
 
+
 class PostDetailView(DetailView):
   template_name= os.path.join('posts', 'post_detail.html')
   model = Post
+
 
 def post_update(request, pk):
   post = get_object_or_404(Post, pk=pk)
@@ -48,3 +40,9 @@ def post_update(request, pk):
   return render(request, 'posts/post_update.html', context={
     'form': update_form
   })
+
+
+class PostDeleteView(DeleteView):
+  template_name=os.path.join("posts", "post_delete.html")
+  model = Post
+  success_url = reverse_lazy('posts:post_list')

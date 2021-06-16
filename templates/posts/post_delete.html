@@ -7,15 +7,18 @@
 
 {% block content %}
 <div class="container">
+  <h1 style="text-align: center;">以下の投稿を本当に削除しますか？</h1>
+  <div class="delete-form_wrapper">
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" class="btn" value = "削除">
+    </form>
+    <a href="{% url 'posts:post_detail' object.pk %}" class="btn">戻る</a>
+  </div>
   <div class="row justify-content-center">
-    <div class="col-sm-10">
+    <div class="col-sm-5">
       <img src="{{ object.picture.url }}" alt="ペットの写真">
-      {% if object.user.id == request.user.id %}
-      <div class="btn-wrapper">
-        <a href="{% url 'posts:post_update' object.pk %}" class="btn">更新する</a>
-        <a href="{% url 'posts:post_delete' object.pk %}" class="btn">削除する</a>
-      </div>
-      {% endif %}
       <table>
         <tbody>
           <tr>
