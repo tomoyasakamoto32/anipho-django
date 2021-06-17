@@ -20,4 +20,15 @@ class Post(models.Model):
   def __str__(self):
     return self.title
 
-  
+
+class Like(models.Model):
+  post = models.ForeignKey(
+    Post, on_delete=models.CASCADE
+  )
+  user = models.ForeignKey(
+    User, on_delete=models.CASCADE
+  )
+  created_at = models.DateTimeField(default=timezone.now)
+
+  class Meta:
+    db_table='Likes'
