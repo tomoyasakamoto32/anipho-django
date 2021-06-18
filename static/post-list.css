@@ -7,6 +7,10 @@ a.btn {
   margin-top: 5vh;
 }
 
+.row {
+  margin-bottom: 4vh;
+}
+
 .bg-img {
   height: 500px;
   background-image: url(tomneko12151305_TP_V.jpg);

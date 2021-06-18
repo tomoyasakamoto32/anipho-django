@@ -32,3 +32,16 @@ class Like(models.Model):
 
   class Meta:
     db_table='Likes'
+
+class Comment(models.Model):
+  content = models.TextField(max_length=1000)
+  post = models.ForeignKey(
+    Post, on_delete=models.CASCADE
+  )
+  user = models.ForeignKey(
+    User, on_delete=models.CASCADE
+  )
+  created_at = models.DateTimeField(default=timezone.now)
+
+  class Meta:
+    db_table = 'Comments'
