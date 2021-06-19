@@ -2,9 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 import os
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Post, Like
+from .models import Post, Like, Comment
 from django.http import Http404
-from .forms import PostForm
+from .forms import PostForm, CommentForm
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.timezone import make_aware
@@ -36,11 +36,12 @@ class PostDetailView(DetailView):
     like = Like.objects.filter(post = post.pk)
     context['like_count'] = like.count()
     isLike = Like.objects.filter(post = post.pk, user=self.request.user)
-    print(isLike)
     if isLike:
       context['isLike']=True
     else:
       context['isLike']=False
+    context['comment_form'] = CommentForm()
+    context['comments'] = Comment.objects.filter(post=post.pk)
     return context
 
 
@@ -71,4 +72,13 @@ def like_create(request, pk):
       like.delete()
     else:
       like.create(user=request.user, post=post, created_at=make_aware(datetime.now()))
+  return redirect('posts:post_detail', pk=pk)
+
+def comment_create(request, pk):
+  if request.method == 'POST':
+    content = request.POST['content']
+    user = request.user
+    post = Post.objects.get(pk=pk)
+    comment = Comment(content=content, user=user, post=post)
+    comment.save()
   return redirect('posts:post_detail', pk=pk)

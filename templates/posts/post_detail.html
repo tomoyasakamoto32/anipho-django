@@ -53,6 +53,24 @@
           </tr>
         </tbody>
       </table>
+      <hr>
+      <h3>コメント一覧</h3>
+      {% if comments %}
+        {% for comment in comments %}
+          <div class="alert alert-warning" role="alert">
+            {{ comment.user.username }} : {{ comment.content }}
+          </div>
+        {% endfor %}
+      {% else %}
+        <div class="alert alert-warning" role="alert">
+          コメントはまだありません
+        </div>
+      {% endif %}
+      <form method="POST" action="{% url 'posts:comment_create' object.pk %}">
+        {% csrf_token %}
+        {{ comment_form }}
+        <input type="submit">
+      </form>
     </div>
   </div>
 </div>
