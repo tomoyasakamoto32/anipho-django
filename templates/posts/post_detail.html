@@ -59,6 +59,10 @@
         {% for comment in comments %}
           <div class="alert alert-warning" role="alert">
             {{ comment.user.username }} : {{ comment.content }}
+            <form action="{% url 'posts:comment_delete' comment.pk %}" method='POST' class="comment_delete_form">
+              {% csrf_token %}
+              <input type="submit" value="削除する" class="btn">
+            </form>
           </div>
         {% endfor %}
       {% else %}
@@ -69,7 +73,7 @@
       <form method="POST" action="{% url 'posts:comment_create' object.pk %}">
         {% csrf_token %}
         {{ comment_form }}
-        <input type="submit">
+        <input type="submit" class="btn" value="送信する" style="margin:1vh 0;">
       </form>
     </div>
   </div>

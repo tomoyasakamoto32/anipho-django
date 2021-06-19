@@ -72,6 +72,11 @@ form.like-form {
   padding: 0.5vh;
 }
 
+.comment_delete_form{
+  display: inline-block;
+  margin-left: 2vw;
+}
+
 
 @media (max-width: 599px) {
 }

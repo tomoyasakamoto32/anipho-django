@@ -82,3 +82,9 @@ def comment_create(request, pk):
     comment = Comment(content=content, user=user, post=post)
     comment.save()
   return redirect('posts:post_detail', pk=pk)
+
+def comment_delete(request, pk):
+  if request.method == 'POST':
+    comment = get_object_or_404(Comment, pk=pk)
+    comment.delete()
+  return redirect('posts:post_detail', pk=pk)
