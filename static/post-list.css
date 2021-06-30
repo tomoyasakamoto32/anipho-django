@@ -40,6 +40,19 @@ a.btn {
   text-decoration: none;
 }
 
+input.btn {
+  margin-top:2vh;
+}
+
+.form-control{
+  margin-bottom: 2vh;
+}
+
+#image-preview>div {
+  width: 25vw;
+  margin-bottom: 1vh;
+}
+
 @media (max-width: 599px) {
   .post-btn>a {
     width: 120px;

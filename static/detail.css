@@ -77,6 +77,12 @@ form.like-form {
   margin-left: 2vw;
 }
 
+.like-btn:focus {
+  border-color: #a18068;
+  box-shadow: 0 0 0 0.25rem rgba(255, 169, 40, 0.406);
+  outline: none;
+}
+
 
 @media (max-width: 599px) {
 }

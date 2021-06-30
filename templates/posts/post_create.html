@@ -11,10 +11,42 @@
   <div class="col-md-10">
     <form method="POST" class='form' enctype="multipart/form-data">
       {% csrf_token %}
-      {{ form.as_p }}
+      {{ form.picture.label }}
+      {{ form.picture }}
+      <div id="image-preview"></div>
+      {{ form.title.label }}
+      {{ form.title }}
+      {{ form.detail.label }}
+      {{ form.detail }}
+      {{ form.animal_name.label }}
+      {{ form.animal_name }}
       <input type="submit" value="投稿する" class="btn">
     </form>
   </div>
 </div>
+<script>
+  const picture = document.getElementById('image-preview');
+  const pictureInput = document.getElementById('id_picture');
 
+  const createImageHTML = (blob)=>{
+    const imageElement = document.createElement('div');
+    const blobImage = document.createElement('img');
+    blobImage.setAttribute('src', blob);
+    blobImage.setAttribute('class', `img-fluid`);
+
+    imageElement.appendChild(blobImage);
+    picture.appendChild(imageElement);
+  }
+
+  pictureInput.addEventListener('change', (e)=>{
+    const imageContent = document.querySelector('.img-fluid')
+    if (imageContent){
+      imageContent.remove();
+    }
+    file = e.target.files[0];
+    blob = window.URL.createObjectURL(file);
+
+    createImageHTML(blob)
+  })
+</script>
 {% endblock %}
